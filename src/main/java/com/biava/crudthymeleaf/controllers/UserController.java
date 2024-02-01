@@ -48,5 +48,12 @@ public class UserController {
 		service.delete(id);
 		return "redirect:/list";
 	}
+	
+	@GetMapping(value = "/error")
+	public ModelAndView error() {
+		ModelAndView mav = new ModelAndView("error");
+		mav.addObject("error", new RuntimeException().getMessage());
+		return mav;
+	}
 }
 
